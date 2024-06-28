@@ -7,6 +7,13 @@
 
     <header>
         <h1>Hospital Simulator Game</h1>
+<div class="disease-chart hidden" id="disease-chart2"><table>
+                    <tr><th>Disease</th><th>Symptoms</th></tr>
+                    <tr><td><p>Pneumonia</p></td><td> <p>Fever, Cough, Short breath, Chills, Muscle ache</p></td></tr>
+                    <tr><td><p>Stroke</p></td><td><p>Trouble speaking, Numbness in one arm, Dizziness, Trouble walking</p></td></tr>
+                    <tr><td><p>Cardiac Arrest</p></td><td><p>Fatigue, Short breath, Dizziness, Chest pain, Rapid heart rate</p></td></tr>
+                    <tr><td><p>Tuberculosis</p></td><td><p>Fever, Fatigue, Cough, Swellings, Coughing blood</p></td></tr>
+                </table></div>
         <p id="intro-text">You are a doctor at UCSF. Your goal is to diagnose patients correctly throughout your shift. Each interaction will test your medical knowledge and decision-making skills. You will receive breaks where you can decide to either do nothing or see telemedicine patients. Good luck!</p>
     </header>
     <body>
@@ -15,7 +22,7 @@
                 <h2 id="scene-title">Introduction</h2>
 
                 <div id="game-status">
-                    <p id="day">Day: 1</p>
+                    <p id='totalday'><span id="day">Day: 1</span>/9</p>
                     <p id="score">Score: 0</p>
                     <p id="timer">Time: 00:00</p>
                 </div>
@@ -23,22 +30,31 @@
                 <div class="break-timer" id="break-timer">&nbsp;</div>
                 <p class="" id="patient-counter">Patients Diagnosed: 0</p>
                 <p class="" id="patients-left">&nbsp;</p>
+<p class="" id="linebreak">&nbsp;</p>
                 <p class="hidden" id="telemedicine-count">Telemedicine Sessions: 0</p>
                 <p class="hidden" id="final-score">Final Score: 0</p>
                 <p id="scene-story">&nbsp;</p>
                 <div class="hidden" id="summary-container">&nbsp;</div>
                 <div class="disease-chart hidden" id="disease-chart"><table>
                     <tr><th>Disease</th><th>Symptoms</th></tr>
-                    <tr><td>Pneumonia</td><td>Coughing, Fever, Chills, Shortness of breath</td></tr>
-                    <tr><td>Stroke</td><td>Weakness in one arm, Slurred speech</td></tr>
-                    <tr><td>Heart Attack</td><td>Chest pain, Shortness of breath</td></tr>
-                    <tr><td>Anxiety Attack</td><td>Rapid heart rate, Sweating, Trembling</td></tr>
+                    <tr><td>Pneumonia</td><td> Fever, Cough, Short breath, Chills, Muscle ache</td></tr>
+                    <tr><td>Stroke</td><td>Trouble speaking, Numbness in one arm, Dizziness, Trouble walking</td></tr>
+                    <tr><td>Cardiac Arrest</td><td>Fatigue, Short breath, Dizziness, Chest pain, Rapid heart rate</td></tr>
+                    <tr><td>Tuberculosis</td><td>Fever, Fatigue, Cough, Swellings, Coughing blood</td></tr>
                 </table></div>
                 <div id="formula-container" class="hidden">
                     Calculated Value: <input value="0" type="text" id="formulaInput">
-                    <div id="slider-container" class="slideContainer hidden">
+                    <div id="slider-container" class="slideContainer hidden" style="--step:0.1; --min:0; --max:10">
                         Thats right! Now find the value on this slider
-                        <input value="0" style="width: 75%; margin: 20px;" type="range" min="0" max="10" id="myRange" step="0.1" class="slider">
+                        <input value="0" style="width: 75%; margin: 20px;" type="range" min="0" max="10" id="myRange" step="0.1" class="slider" list="slider_vals" data-rendered="r">
+<datalist id="slider_vals">
+  <option value="0">0</option>
+  <option value="2">2</option>
+  <option value="4">4</option>
+  <option value="6">6</option>
+  <option value="8">8</option>
+  <option value="10">10</option>
+</datalist>
                         <p>Slider Value: <span id="value"></span></p>
                     </div>
                 </div>
